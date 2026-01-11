@@ -5,8 +5,8 @@ export function isMacOSTerminal(): boolean {
     process.platform === "darwin" &&
     (process.env.TERM_PROGRAM === "Apple_Terminal" ||
       process.env.TERM_PROGRAM === "iTerm.app" ||
-      process.env.TERM?.includes("xterm") ||
-      process.env.TERM?.includes("screen"))
+      (process.env.TERM?.includes("xterm") ?? false) ||
+      (process.env.TERM?.includes("screen") ?? false))
   )
 }
 

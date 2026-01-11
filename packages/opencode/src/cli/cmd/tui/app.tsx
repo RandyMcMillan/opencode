@@ -160,9 +160,9 @@ export function tui(input: {
               <ErrorComponent
                 error={error}
                 reset={reset}
-                onExit={() => {
+                onExit={async () => {
                   cleanupSignalHandlers()
-                  onExit()
+                  await onExit()
                 }}
                 mode={mode}
               />
